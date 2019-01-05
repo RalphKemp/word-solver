@@ -3,7 +3,7 @@ import { FETCH_WORDS } from "./types";
 
 export const fetchWords = word => async dispatch => {
   const res = await axios.get(
-    `${'https://cors-anywhere.herokuapp.com/'}https://od-api.oxforddictionaries.com:443/api/v1/wordlist/en/regions%3Dbritish%2C?word_length=4%2C&exact=false&limit=10`,
+    `${'https://cors-anywhere.herokuapp.com/'}https://od-api.oxforddictionaries.com:443/api/v1/wordlist/en/regions%3Dbritish%2C?word_length=${word.length}%2C&exact=false&limit=10`,
     {
       headers: {
         'Accept': "application/json",
