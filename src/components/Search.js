@@ -5,9 +5,9 @@ import { Field, reduxForm } from "redux-form";
 
 class Search extends Component {
   render() {
-    const { handleSubmit, pristine, reset, submitting, fetchWords } = this.props;
+    const { handleSubmit, pristine, reset, submitting, setWords } = this.props;
     return (
-      <form onSubmit={handleSubmit(values => setWords(values))}>
+      <form onSubmit={handleSubmit(values => setWords(values))} autoComplete='off'>
         <div>
           <label>First Name</label>
           <div>
@@ -16,6 +16,12 @@ class Search extends Component {
               component="input"
               type="text"
               placeholder="First Word"
+            />
+            <Field
+              name="secondWord"
+              component="input"
+              type="text"
+              placeholder="Second Word"
             />
           </div>
           <div>
