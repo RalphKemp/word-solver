@@ -11,20 +11,18 @@ const MainResultsDiv = styled.div`
 `;
 
 class Results extends Component {
-  render() {
+
+  componentDidMount() {
     const words = this.props.words.results;
     console.log(words);
+
+  }
+
+  render() {
+
     return (
       <MainResultsDiv>
-        {words ? (
-          <div>
-            {words.map(x => {
-              return <div key={uuidv1()}>{x.word}</div>;
-            })}
-          </div>
-        ) : (
-          <div>no</div>
-        )}
+        { this.state.words ? (<div>{words[0]}</div>) : null}
       </MainResultsDiv>
     );
   }
