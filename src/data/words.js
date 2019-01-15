@@ -1,4 +1,4 @@
-export const words =
+export const data =
 
 
 
@@ -14142,3 +14142,4 @@ export const words =
             "word": "zuni"
         }
     ]
+}
