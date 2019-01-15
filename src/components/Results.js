@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
-import uuidv1 from "uuid/v1";
+import { data } from '../data/words';
+// import uuidv1 from "uuid/v1";
 
 const MainResultsDiv = styled.div`
   height: 100vh;
@@ -10,21 +11,38 @@ const MainResultsDiv = styled.div`
   color: white;
 `;
 
+const WordsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
 class Results extends Component {
+
+  componentDidMount() {
+    console.log(data)
+  }
+
+  renderWords(x, y) {
+    return (
+      <WordsContainer>
+        <div>{x}</div>
+        <div>{y}</div>
+      </WordsContainer>
+    );
+  }
+
   render() {
-    const words = this.props.words.results;
-    console.log(words);
     return (
       <MainResultsDiv>
-        {words ? (
+        {this.props.words ? (
           <div>
-            {words.map(x => {
-              return <div key={uuidv1()}>{x.word}</div>;
-            })}
+            {this.renderWords(
+              this.props.words.firstWord,
+              this.props.words.secondWord
+            )}
           </div>
-        ) : (
-          <div>no</div>
-        )}
+        ) : null}
       </MainResultsDiv>
     );
   }
