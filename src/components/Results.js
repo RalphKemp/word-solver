@@ -10,12 +10,33 @@ const MainResultsDiv = styled.div`
   color: white;
 `;
 
+const WordsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
 class Results extends Component {
+  renderWords(x, y) {
+    return (
+      <WordsContainer>
+        <div>{x}</div>
+        <div>{y}</div>
+      </WordsContainer>
+    );
+  }
 
   render() {
     return (
       <MainResultsDiv>
-        {this.props.words ? <div>{this.props.words.firstWord}{this.props.words.secondWord}</div> : null}
+        {this.props.words ? (
+          <div>
+            {this.renderWords(
+              this.props.words.firstWord,
+              this.props.words.secondWord
+            )}
+          </div>
+        ) : null}
       </MainResultsDiv>
     );
   }
