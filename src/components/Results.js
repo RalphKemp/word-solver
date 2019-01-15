@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
 import { data } from '../data/words';
+import { puzzleSolver } from '../helpers/puzzleSolver';
 // import uuidv1 from "uuid/v1";
 
 const MainResultsDiv = styled.div`
@@ -18,11 +19,6 @@ const WordsContainer = styled.div`
 `;
 
 class Results extends Component {
-
-  componentDidMount() {
-    console.log(data)
-  }
-
   renderWords(x, y) {
     return (
       <WordsContainer>
@@ -37,9 +33,10 @@ class Results extends Component {
       <MainResultsDiv>
         {this.props.words ? (
           <div>
-            {this.renderWords(
+            {puzzleSolver(
               this.props.words.firstWord,
-              this.props.words.secondWord
+              this.props.words.secondWord,
+              data
             )}
           </div>
         ) : null}
