@@ -40,3 +40,17 @@ export const puzzleSolver = (x, y, d) => {
 
 
 
+
+
+// our argument is 'head', and we want to recognize 'hear'.
+
+// const data = [['a','r','e','s'], ['h','e','a','r'], ['x','x','v','v'], ['h','x','v','v']];
+
+// function swapLetter(x) {
+//   const word = x.split('');
+//   const pool = data.filter(arr => {
+//     console.log(arr.filter(z => word.filter(l => l !== z).length === 3));
+//   })
+//   return pool
+// }
+// swapLetter('head');
