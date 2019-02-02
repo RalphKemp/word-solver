@@ -1,8 +1,4 @@
-export const data =
-
-
-
-{
+export const data = {
     "results": [
 
         {
@@ -97,8 +93,7 @@ export const data =
         {
             "word": "achy"
         },
-        {
-        },
+
         {
             "word": "aclu"
         },
@@ -288,12 +283,7 @@ export const data =
         {
             "word": "ahum"
         },
-        {
-         },
-        {
-         },
-        {
-         },
+
         {
             "word": "aiga"
         },
@@ -375,8 +365,7 @@ export const data =
         {
             "word": "algo"
         },
-        {
-        },
+
         {
             "word": "alif"
         },
@@ -449,8 +438,7 @@ export const data =
         {
             "word": "amex"
         },
-        {
-        },
+
         {
             "word": "amir"
         },
@@ -613,8 +601,7 @@ export const data =
         {
             "word": "aria"
         },
-        {
-        },
+
         {
             "word": "aril"
         },
@@ -764,8 +751,7 @@ export const data =
         {
             "word": "aves"
         },
-        {
-        },
+
         {
             "word": "avon"
         },
@@ -1130,10 +1116,7 @@ export const data =
         {
             "word": "bice"
         },
-        {
-         },
-        {
-         },
+
         {
             "word": "bier"
         },
@@ -2537,8 +2520,7 @@ export const data =
         {
             "word": "degu"
         },
-        {
-        },
+
         {
             "word": "deil"
         },
@@ -2632,8 +2614,7 @@ export const data =
         {
             "word": "dfab"
         },
-        {
-        },
+
         {
             "word": "dhol"
         },
@@ -2661,10 +2642,7 @@ export const data =
         {
             "word": "dick"
         },
-        {
-         },
-        {
-         },
+
         {
             "word": "diel"
         },
@@ -3646,8 +3624,7 @@ export const data =
         {
             "word": "-fic"
         },
-        {
-         },
+
         {
             "word": "fief"
         },
@@ -4518,8 +4495,7 @@ export const data =
         {
             "word": "grey"
         },
-        {
-        },
+
         {
             "word": "grig"
         },
@@ -4583,8 +4559,7 @@ export const data =
         {
             "word": "guff"
         },
-        {
-        },
+
         {
             "word": "gulf"
         },
@@ -4877,8 +4852,7 @@ export const data =
         {
             "word": "hick"
         },
-        {
-         },
+
         {
             "word": "high"
         },
@@ -6157,8 +6131,7 @@ export const data =
         {
             "word": "laic"
         },
-        {
-        },
+
         {
             "word": "lain"
         },
@@ -6398,8 +6371,7 @@ export const data =
         {
             "word": "lick"
         },
-        {
-         },
+
         {
             "word": "lied"
         },
@@ -7141,8 +7113,7 @@ export const data =
         {
             "word": "mego"
         },
-        {
-        },
+
         {
             "word": "meil"
         },
@@ -7273,12 +7244,7 @@ export const data =
         {
             "word": "micr"
         },
-        {
-         },
-        {
-         },
-        {
-         },
+
         {
             "word": "miee"
         },
@@ -7751,8 +7717,7 @@ export const data =
         {
             "word": "mugo"
         },
-        {
-        },
+
         {
             "word": "muka"
         },
@@ -7917,8 +7882,7 @@ export const data =
         {
             "word": "naib"
         },
-        {
-        },
+
         {
             "word": "naik"
         },
@@ -8145,10 +8109,6 @@ export const data =
         {
             "word": "nicu"
         },
-        {
-         },
-        {
-         },
         {
             "word": "nife"
         },
@@ -8577,8 +8537,7 @@ export const data =
         {
             "word": "ohms"
         },
-        {
-        },
+
         {
             "word": "oieo"
         },
@@ -8624,8 +8583,7 @@ export const data =
         {
             "word": "oleh"
         },
-        {
-        },
+
         {
             "word": "olim"
         },
@@ -8717,8 +8675,7 @@ export const data =
         {
             "word": "oofy"
         },
-        {
-        },
+
         {
             "word": "ooky"
         },
@@ -8927,8 +8884,7 @@ export const data =
         {
             "word": "ovi-"
         },
-        {
-        },
+
         {
             "word": "ovra"
         },
@@ -9016,8 +8972,7 @@ export const data =
         {
             "word": "pahu"
         },
-        {
-        },
+
         {
             "word": "paik"
         },
@@ -9406,8 +9361,7 @@ export const data =
         {
             "word": "pict"
         },
-        {
-         },
+
         {
             "word": "pied"
         },
@@ -10101,8 +10055,7 @@ export const data =
         {
             "word": "quib"
         },
-        {
-        },
+
         {
             "word": "quim"
         },
@@ -10181,8 +10134,7 @@ export const data =
         {
             "word": "ragu"
         },
-        {
-        },
+
         {
             "word": "raik"
         },
@@ -10484,8 +10436,7 @@ export const data =
         {
             "word": "rfds"
         },
-        {
-        },
+
         {
             "word": "rflp"
         },
@@ -10531,8 +10482,7 @@ export const data =
         {
             "word": "rics"
         },
-        {
-         },
+
         {
             "word": "riel"
         },
@@ -10950,8 +10900,7 @@ export const data =
         {
             "word": "sahm"
         },
-        {
-        },
+
         {
             "word": "sail"
         },
@@ -11090,8 +11039,7 @@ export const data =
         {
             "word": "sch."
         },
-        {
-        },
+
         {
             "word": "scio"
         },
@@ -11475,8 +11423,7 @@ export const data =
         {
             "word": "skew"
         },
-        {
-        },
+
         {
             "word": "skim"
         },
@@ -12460,10 +12407,7 @@ export const data =
         {
             "word": "tick"
         },
-        {
-         },
-        {
-         },
+
         {
             "word": "tied"
         },
@@ -12951,7 +12895,6 @@ export const data =
         {
             "word": "umbo"
         },
-
         {
             "word": "umma"
         },
@@ -13205,8 +13148,6 @@ export const data =
             "word": "vice"
         },
         {
-         },
-        {
             "word": "view"
         },
         {
@@ -13268,8 +13209,6 @@ export const data =
         },
         {
             "word": "vlsi"
-        },
-        {
         },
         {
             "word": "voip"
@@ -13442,7 +13381,6 @@ export const data =
         {
             "word": "wazz"
         },
-
         {
             "word": "weak"
         },
@@ -13593,8 +13531,6 @@ export const data =
         {
             "word": "wick"
         },
-        {
-         },
         {
             "word": "wien"
         },
@@ -13931,8 +13867,6 @@ export const data =
         },
         {
             "word": "ylem"
-        },
-        {
         },
         {
             "word": "ymca"

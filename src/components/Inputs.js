@@ -1,6 +1,6 @@
-import React from 'react';
-import Search from './Search';
-import styled from 'styled-components';
+import React from "react";
+import Search from "./Search";
+import styled from "styled-components";
 
 const MainInputsDiv = styled.div`
   height: 100vh;
@@ -23,6 +23,6 @@ const Inputs = () => {
       <Search />
     </MainInputsDiv>
   );
-}
+};
 
 export default Inputs;
