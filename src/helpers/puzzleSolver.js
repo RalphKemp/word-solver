@@ -4,19 +4,18 @@ export const puzzleSolver = (x, y, d) => {
   // form a new word (b) and make sure that data.includes(b).
   // our array of words which are split.
   const data = d.results.map(x => x.word.split(''));
-
+  const pools = [];
   // first step. With this function we now have the first pool of words
   // which contain at least 3 letters that are in the same place. (first ladder place)
   const poolOne = createFirstPool(x, data);
 
   // new pools created from poolOne. (second ladder place)
-  createComparativePool(poolOne, data, y, 3);
+  const poolTwo = createComparativePool(poolOne, data, y, 3);
 
-  // createComparativePool(poolOne, data, y, 2);
+  pools.push(poolOne, poolTwo);
 
-  // createComparativePool(poolOne, data, y, 1);
-
-  return poolOne;
+  console.log(pools);
+  return pools;
 
   // let's think about this.
   // we now have a new pool of words.
