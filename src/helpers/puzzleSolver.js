@@ -1,56 +1,29 @@
 export const puzzleSolver = (x, y, d) => {
   // so we have the first word, the second word, and all the data.
-  console.log(x, y);
   // first we have x. we need to split, and replace one of the letters and join to
   // form a new word (b) and make sure that data.includes(b).
-
   // our array of words which are split.
   const data = d.results.map(x => x.word.split(''));
 
-
-  // swapLetter(x, data);
-
+  return swapLetter(x, data);
 };
 
-// function swapLetter(x, data) {}
+
+function swapLetter(firstWord, data) {
+  const word = firstWord.split('');
+  const pool = data.filter(wordArr => {
+    return wordArr === compareArrs(word, wordArr);
+  })
+  const finalPool = pool.map(arr => arr.join(''));
+  console.log(finalPool);
+}
+
+// does word have 3 letters that appear in data word? if so, return dataword.
+
+function compareArrs(x, y) {
+  const arr = x.filter(letter => y.includes(letter));
+  return arr.length === 3 ? y : null
+}
 
 
 
-
-// // our argument is 'head', and we want to recognize 'hear'.
-
-// const data = [['a','r','e','s'], ['h','e','a','r'], ['x','x','v','v']];
-
-// function hasThreeOf(w, i) {
-//   return w.filter(x => x !== i).length === 3 ? true : false;
-// }
-
-// function swapLetter(x) {
-//   const word = x.split('');
-//   const pool = data.filter(arr => {
-//     return arr.some(z => hasThreeOf(word, z));
-//   })
-//   return pool
-//   // now we have a pool of words that contain atleast some of the letters of word.
-//   // we need to find the words that have at least 3 of word letters.
-// }
-// swapLetter('head');
-
-
-
-
-
-
-
-// our argument is 'head', and we want to recognize 'hear'.
-
-// const data = [['a','r','e','s'], ['h','e','a','r'], ['x','x','v','v'], ['h','x','v','v']];
-
-// function swapLetter(x) {
-//   const word = x.split('');
-//   const pool = data.filter(arr => {
-//     console.log(arr.filter(z => word.filter(l => l !== z).length === 3));
-//   })
-//   return pool
-// }
-// swapLetter('head');
