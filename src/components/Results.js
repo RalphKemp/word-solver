@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
-import { data } from '../data/words';
-import { puzzleSolver } from '../helpers/puzzleSolver';
-// import uuidv1 from "uuid/v1";
+import { data } from "../data/words";
+import { puzzleSolver } from "../helpers/puzzleSolver";
 
 const MainResultsDiv = styled.div`
-  height: 100vh;
+  min-height: 100vh;
   width: 50vw;
   background-color: blue;
   color: white;
@@ -31,13 +30,16 @@ class Results extends Component {
   render() {
     return (
       <MainResultsDiv>
+        currently we're trying to go from COSY to RINK.
         {this.props.words ? (
           <div>
             {puzzleSolver(
               this.props.words.firstWord,
               this.props.words.secondWord,
               data
-            )}
+            ).map(x => {
+              return <div key={x}>{x}</div>;
+            })}
           </div>
         ) : null}
       </MainResultsDiv>

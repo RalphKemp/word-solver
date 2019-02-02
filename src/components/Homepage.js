@@ -14,7 +14,7 @@ const MainDiv = styled.div`
 
 const Homepage = () => {
   return (
-    <MainDiv>
+        <MainDiv>
       <Inputs />
       <Results />
     </MainDiv>
