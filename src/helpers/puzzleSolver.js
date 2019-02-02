@@ -6,12 +6,15 @@ export const puzzleSolver = (x, y, d) => {
   const data = d.results.map(x => x.word.split(''));
 
   // first step. With this function we now have the first pool of words
-  // which contain at least 3 letters that are in the same place.
-  const poolOne = getPool(x, data, 3);
+  // which contain at least 3 letters that are in the same place. (first ladder place)
+  const poolOne = createFirstPool(x, data);
 
-  // so we have the first pool. Now we compare
+  // new pools created from poolOne. (second ladder place)
+  createComparativePool(poolOne, data, y, 3);
 
-  // const poolTwo = getPool(y, poolOne, 3);
+  // createComparativePool(poolOne, data, y, 2);
+
+  // createComparativePool(poolOne, data, y, 1);
 
   return poolOne;
 
@@ -22,20 +25,50 @@ export const puzzleSolver = (x, y, d) => {
   // the letters y has.
 };
 
-function getPool(firstWord, data, n) {
+function createFirstPool(firstWord, data) {
   const word = firstWord.split('');
   const pool = data.filter(wordArr => {
-    return wordArr === compareArrs(word, wordArr, n);
+    return wordArr === compareArrs(word, wordArr, 3);
   });
   const newPool = pool.map(arr => arr.join(''));
 
   return newPool;
 }
 
-// does word have 3 letters that appear in data word AND have the same index values? if so, return dataword.
-function compareArrs(x, y, n) {
+// Does our word (x) have 3 letters that appear in data word (y) AND have the same index values? if so, return dataword.
+// Doesn't work with double letters unless we pass letter index (i) in the function, to get unique character.
+function compareArrs(x, y, num) {
   const arr = x.filter(
-    letter => y.includes(letter) && y.indexOf(letter) === x.indexOf(letter)
+    (letter, i) =>
+      y.includes(letter, i) && y.indexOf(letter) === x.indexOf(letter)
   );
-  return arr.length === n ? y : null;
+  return arr.length === num ? y : null;
+}
+
+function createComparativePool(poolOne, data, y, num) {
+  // first pool data.
+  const poolData = poolOne.map(x => x.split(''));
+  const secondWord = y.split('');
+  const newArrays = [];
+
+  // for each word in our poolOne, we're creating another basic pool of words like in the first
+  // function, but in this case for each of the first pool words. then in each new pool we filter
+  // out the word arrays which have one letter from our second inputted word, thanks to our compareArrs
+  // function.
+
+  poolData.forEach(i => {
+    const testing = data
+      .filter(x => {
+        return x === compareArrs(i, x, 3);
+      })
+      .filter(a => {
+        return a === compareArrs(secondWord, a, 1);
+      });
+
+    return testing.length > 0
+      ? newArrays.push(testing.map(x => x.join('')))
+      : null;
+  });
+
+  return newArrays;
 }
