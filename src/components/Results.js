@@ -10,7 +10,7 @@ const MainResultsDiv = styled.div`
   background-color: blue;
   color: white;
   @media (min-width: 600px) {
-    height: 100vh;
+    min-height: 100vh;
     width: 50vw;
   }
 `;

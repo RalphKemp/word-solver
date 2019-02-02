@@ -13,6 +13,7 @@ const Fields = styled.div`
     height: 30px;
     font-size: 16px;
     padding-left: 6px;
+    outline-color: blue;
   }
 `;
 
@@ -42,7 +43,7 @@ class Search extends Component {
         onSubmit={handleSubmit(values => setWords(values))}
         autoComplete="off"
       >
-        <Label>Enter your two words</Label>
+        <Label>Enter your two words:</Label>
         <div>
           <Fields>
             <Field
