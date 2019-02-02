@@ -8,17 +8,21 @@ const MainDiv = styled.div`
   height: 100vh;
   background-color: pink;
   display: flex;
-  justift-content: center;
+  justify-content: center;
   align-items: center;
+  flex-direction: column;
+  @media (min-width: 600px) {
+    flex-direction: row;
+  }
 `;
 
 const Homepage = () => {
   return (
-        <MainDiv>
+    <MainDiv>
       <Inputs />
       <Results />
     </MainDiv>
   );
-}
+};
 
 export default Homepage;

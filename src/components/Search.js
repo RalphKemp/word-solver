@@ -1,16 +1,51 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import * as actions from "../actions";
-import { Field, reduxForm } from "redux-form";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
+import { Field, reduxForm } from 'redux-form';
+import styled from 'styled-components';
+
+const Fields = styled.div`
+  display: flex;
+  * {
+    margin-right: 20px;
+    margin-top: 20px;
+    width: 40%;
+    height: 30px;
+    font-size: 16px;
+    padding-left: 6px;
+    outline-color: blue;
+  }
+`;
+
+const Label = styled.label`
+  font-size: 20px;
+`;
+
+const Form = styled.form`
+  height: 80px;
+  width: 80%;
+`;
+
+const Button = styled.button`
+  idth: 155px;
+  height: 42px;
+  background-color: green;
+  color: white;
+  margin-top: 20px;
+  font-size: 16px;
+`;
 
 class Search extends Component {
   render() {
     const { handleSubmit, pristine, reset, submitting, setWords } = this.props;
     return (
-      <form onSubmit={handleSubmit(values => setWords(values))} autoComplete='off'>
+      <Form
+        onSubmit={handleSubmit(values => setWords(values))}
+        autoComplete="off"
+      >
+        <Label>Enter your two words:</Label>
         <div>
-          <label>First Name</label>
-          <div>
+          <Fields>
             <Field
               name="firstWord"
               component="input"
@@ -23,14 +58,14 @@ class Search extends Component {
               type="text"
               placeholder="Second Word"
             />
-          </div>
+          </Fields>
           <div>
-            <button type="submit" disabled={pristine || submitting}>
+            <Button type="submit" disabled={pristine || submitting}>
               Submit
-            </button>
+            </Button>
           </div>
         </div>
-      </form>
+      </Form>
     );
   }
 }
@@ -40,7 +75,7 @@ export default connect(
   actions
 )(
   reduxForm({
-    form: "search"
+    form: 'search'
     // onSubmitSuccess: afterSubmit
   })(Search)
 );

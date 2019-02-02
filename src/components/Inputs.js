@@ -1,26 +1,35 @@
-import React from "react";
-import Search from "./Search";
-import styled from "styled-components";
+import React from 'react';
+import Search from './Search';
+import styled from 'styled-components';
 
 const MainInputsDiv = styled.div`
-  height: 100vh;
-  width: 50vw;
-  background-color: grey;
+  height: 50vh;
+  width: 100vw;
+  background-color: #f1ecec;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  input {
-    width: 30%;
-    height: 20px;
-    font-size: 20px;
+  @media (min-width: 600px) {
+    height: 100vh;
+    width: 50vw;
   }
+`;
+
+const SearchContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 50vh;
+  margin-bottom: 30px;
 `;
 
 const Inputs = () => {
   return (
     <MainInputsDiv>
-      <Search />
+      <SearchContainer>
+        <Search />
+      </SearchContainer>
     </MainInputsDiv>
   );
 };
