@@ -3,28 +3,47 @@ export const puzzleSolver = (x, y, d) => {
   // first we have x. we need to split, and replace one of the letters and join to
   // form a new word (b) and make sure that data.includes(b).
   // our array of words which are split.
-  const data = d.results.map(x => x.word.split(''));
-
+  const data = d.results.map(x => x.word.split(""));
+  const pools = [];
   // first step. With this function we now have the first pool of words
   // which contain at least 3 letters that are in the same place. (first ladder place)
-  const poolOne = createFirstPool(x, data);
+  const poolOne = createFirstPool(x, data, y);
 
   // new pools created from poolOne. (second ladder place)
-  createComparativePool(poolOne, data, y, 3);
+  const poolTwo = createComparativePool(poolOne, data, y, 3, 1);
+  console.log(poolTwo);
 
-  // createComparativePool(poolOne, data, y, 2);
+  const poolThree = [];
+  // for each pool in poolTwo, we run the function again, but this time we need TWO
+  // of the letters being the same.
+  poolTwo.forEach(pool =>
+    poolThree.push(createComparativePool(pool, data, y, 3, 2))
+  );
 
-  // createComparativePool(poolOne, data, y, 1);
+  const poolFour = [];
 
-  return poolOne;
+  poolThree.forEach(p => {
+    return p.forEach(pool =>
+      poolFour.push(createComparativePool(pool, data, y, 3, 3))
+    );
+  });
+
+  pools.push(poolOne, poolTwo, poolThree, poolFour);
+
+  return pools;
 };
 
-function createFirstPool(firstWord, data) {
-  const word = firstWord.split('');
+function createFirstPool(firstWord, data, y) {
+  const secondWord = y.split("");
+  const word = firstWord.split("");
   const pool = data.filter(wordArr => {
-    return wordArr === compareArrs(word, wordArr, 3);
+    return (
+      wordArr === compareArrs(word, wordArr, 3) &&
+      !compareArrs(secondWord, wordArr, 1) // we want to return null from compareArrs, not y! so
+      // that our first pool has no letters from second word!!
+    );
   });
-  const newPool = pool.map(arr => arr.join(''));
+  const newPool = pool.map(arr => arr.join(""));
 
   return newPool;
 }
@@ -36,13 +55,15 @@ function compareArrs(x, y, num) {
     (letter, i) =>
       y.includes(letter, i) && y.indexOf(letter) === x.indexOf(letter)
   );
+
   return arr.length === num ? y : null;
 }
 
-function createComparativePool(poolOne, data, y, num) {
+function createComparativePool(pool, data, y, num, numTwo) {
   // first pool data.
-  const poolData = poolOne.map(x => x.split(''));
-  const secondWord = y.split('');
+
+  const poolData = pool.map(x => x.split(""));
+  const secondWord = y.split("");
   const newArrays = [];
 
   // for each word in our poolOne, we're creating another basic pool of words like in the first
@@ -53,14 +74,14 @@ function createComparativePool(poolOne, data, y, num) {
   poolData.forEach(i => {
     const testing = data
       .filter(x => {
-        return x === compareArrs(i, x, 3);
+        return x === compareArrs(i, x, num);
       })
       .filter(a => {
-        return a === compareArrs(secondWord, a, 1);
+        return a === compareArrs(secondWord, a, numTwo);
       });
 
     return testing.length > 0
-      ? newArrays.push(testing.map(x => x.join('')))
+      ? newArrays.push(testing.map(x => x.join("")))
       : null;
   });
 

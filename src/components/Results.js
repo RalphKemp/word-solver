@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import styled from 'styled-components';
-import { data } from '../data/words';
-import { puzzleSolver } from '../helpers/puzzleSolver';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import styled from "styled-components";
+import { data } from "../data/words";
+import { puzzleSolver } from "../helpers/puzzleSolver";
 
 const MainResultsDiv = styled.div`
   min-height: 50vh;
@@ -15,12 +15,6 @@ const MainResultsDiv = styled.div`
   }
 `;
 
-const WordsContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-`;
-
 const Title = styled.div`
   width: 100%;
   text-align: center;
@@ -29,22 +23,26 @@ const Title = styled.div`
 
 const Words = styled.div`
   margin: 20px 0px 0px 20px;
+  display: flex;
+  justify-content: center;
+`;
+
+const LadderStep = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+`;
+
+const Blob = styled.div`
+  background-color: green;
+  padding: 10px;
 `;
 
 class Results extends Component {
-  renderWords(x, y) {
-    return (
-      <WordsContainer>
-        <div>{x}</div>
-        <div>{y}</div>
-      </WordsContainer>
-    );
-  }
-
   render() {
     return (
       <MainResultsDiv>
-        <Title>currently we're trying to go from COSY to RINK.</Title>
+        <Title>currently we're trying to go from JINX to BULL.</Title>
         {this.props.words ? (
           <Words>
             {puzzleSolver(
@@ -52,7 +50,26 @@ class Results extends Component {
               this.props.words.secondWord,
               data
             ).map(x => {
-              return <div key={x}>{x}</div>;
+              return (
+                <LadderStep key={x}>
+                  {x.map(y => (
+                    <div>
+                      {!Array.isArray(y) ? (
+                        <Blob>{y}</Blob>
+                      ) : (
+                        <Blob
+                          style={{
+                            backgroundColor: "green",
+                            marginBottom: "20px"
+                          }}
+                        >
+                          {y}
+                        </Blob>
+                      )}
+                    </div>
+                  ))}
+                </LadderStep>
+              );
             })}
           </Words>
         ) : null}
