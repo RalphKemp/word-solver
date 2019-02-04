@@ -24,7 +24,7 @@ const Title = styled.div`
 const Words = styled.div`
   margin: 20px 0px 0px 20px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
 `;
 
 const LadderStep = styled.div`
@@ -34,7 +34,7 @@ const LadderStep = styled.div`
 `;
 
 const Blob = styled.div`
-  background-color: black;
+  background-color: green;
   padding: 10px;
 `;
 
