@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import styled from 'styled-components';
-import { data } from '../data/words';
-import { puzzleSolver } from '../helpers/puzzleSolver';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import styled from "styled-components";
+import { data } from "../data/words";
+import { puzzleSolver } from "../helpers/puzzleSolver";
 
 const MainResultsDiv = styled.div`
   min-height: 50vh;
@@ -59,8 +59,8 @@ class Results extends Component {
                       ) : (
                         <Blob
                           style={{
-                            backgroundColor: 'green',
-                            marginBottom: '20px'
+                            backgroundColor: "green",
+                            marginBottom: "20px"
                           }}
                         >
                           {y}

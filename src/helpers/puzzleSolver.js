@@ -7,10 +7,11 @@ export const puzzleSolver = (x, y, d) => {
   const pools = [];
   // first step. With this function we now have the first pool of words
   // which contain at least 3 letters that are in the same place. (first ladder place)
-  const poolOne = createFirstPool(x, data);
+  const poolOne = createFirstPool(x, data, y);
 
   // new pools created from poolOne. (second ladder place)
   const poolTwo = createComparativePool(poolOne, data, y, 3, 1);
+  console.log(poolTwo);
 
   const poolThree = [];
   // for each pool in poolTwo, we run the function again, but this time we need TWO
@@ -38,10 +39,15 @@ export const puzzleSolver = (x, y, d) => {
   // the letters y has.
 };
 
-function createFirstPool(firstWord, data) {
+function createFirstPool(firstWord, data, y) {
+  const secondWord = y.split("");
   const word = firstWord.split("");
   const pool = data.filter(wordArr => {
-    return wordArr === compareArrs(word, wordArr, 3);
+    return (
+      wordArr === compareArrs(word, wordArr, 3) &&
+      !compareArrs(secondWord, wordArr, 1) // we want to return null from compareArrs, not y! so
+      // that our first pool has no letters from second word!!
+    );
   });
   const newPool = pool.map(arr => arr.join(""));
 
@@ -55,13 +61,13 @@ function compareArrs(x, y, num) {
     (letter, i) =>
       y.includes(letter, i) && y.indexOf(letter) === x.indexOf(letter)
   );
+
   return arr.length === num ? y : null;
 }
 
 function createComparativePool(pool, data, y, num, numTwo) {
   // first pool data.
 
-  console.log(pool);
   const poolData = pool.map(x => x.split(""));
   const secondWord = y.split("");
   const newArrays = [];
