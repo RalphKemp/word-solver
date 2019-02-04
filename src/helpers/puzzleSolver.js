@@ -31,12 +31,6 @@ export const puzzleSolver = (x, y, d) => {
   pools.push(poolOne, poolTwo, poolThree, poolFour);
 
   return pools;
-
-  // let's think about this.
-  // we now have a new pool of words.
-  // we need a NEW pool of words, through a function which
-  // filters the pool we have to get back words that have at least one of
-  // the letters y has.
 };
 
 function createFirstPool(firstWord, data, y) {
