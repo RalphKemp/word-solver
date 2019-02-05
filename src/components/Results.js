@@ -8,7 +8,7 @@ import uuidv1 from "uuid/v1";
 const MainResultsDiv = styled.div`
   min-height: 50vh;
   width: 100vw;
-  background-color: blue;
+  background-color: #001b5a;
   color: white;
   display: flex;
   @media (min-width: 600px) {
@@ -40,12 +40,16 @@ const LadderStep = styled.div`
 `;
 
 const Blob = styled.div`
-  background-color: green;
   padding: 10px;
+  margin-bottom: 10px;
+  background-color: #c2c537;
+  color: black;
 `;
 
 const InputtedWord = styled(Blob)`
-  background-color: red;
+  background-color: green;
+  color: white;
+  font-size: 25px;
 `;
 
 class Results extends Component {
@@ -67,17 +71,12 @@ class Results extends Component {
                   <LadderStep key={x}>
                     {x.map(y => (
                       <div key={uuidv1()}>
-                        {!Array.isArray(y) ? (
-                          <Blob>{y}</Blob>
+                        {Array.isArray(y) ? (
+                          y.map(thing => {
+                            return <Blob>{thing}</Blob>;
+                          })
                         ) : (
-                          <Blob
-                            style={{
-                              backgroundColor: "green",
-                              marginBottom: "20px"
-                            }}
-                          >
-                            {y}
-                          </Blob>
+                          <Blob>{y}</Blob>
                         )}
                       </div>
                     ))}
