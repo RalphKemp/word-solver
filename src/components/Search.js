@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import * as actions from '../actions';
-import { Field, reduxForm } from 'redux-form';
-import styled from 'styled-components';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import * as actions from "../actions";
+import { Field, reduxForm } from "redux-form";
+import styled from "styled-components";
 
 const Fields = styled.div`
   display: flex;
@@ -43,7 +43,7 @@ class Search extends Component {
         onSubmit={handleSubmit(values => setWords(values))}
         autoComplete="off"
       >
-        <Label>Enter your two words:</Label>
+        <Label>Enter your two 4-letter words:</Label>
         <div>
           <Fields>
             <Field
@@ -75,7 +75,7 @@ export default connect(
   actions
 )(
   reduxForm({
-    form: 'search'
+    form: "search"
     // onSubmitSuccess: afterSubmit
   })(Search)
 );

@@ -3,15 +3,20 @@ import { connect } from "react-redux";
 import styled from "styled-components";
 import { data } from "../data/words";
 import { puzzleSolver } from "../helpers/puzzleSolver";
+import uuidv1 from "uuid/v1";
 
 const MainResultsDiv = styled.div`
   min-height: 50vh;
   width: 100vw;
   background-color: blue;
   color: white;
+  display: flex;
   @media (min-width: 600px) {
     min-height: 100vh;
     width: 50vw;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
 `;
 
@@ -25,6 +30,7 @@ const Words = styled.div`
   margin: 20px 0px 0px 20px;
   display: flex;
   justify-content: center;
+  align-items: center;
 `;
 
 const LadderStep = styled.div`
@@ -38,41 +44,56 @@ const Blob = styled.div`
   padding: 10px;
 `;
 
+const InputtedWord = styled(Blob)`
+  background-color: red;
+`;
+
 class Results extends Component {
   render() {
     return (
       <MainResultsDiv>
-        <Title>currently we're trying to go from JINX to BULL.</Title>
         {this.props.words ? (
           <Words>
+            <LadderStep>
+              <InputtedWord>{this.props.words.firstWord}</InputtedWord>
+            </LadderStep>
             {puzzleSolver(
               this.props.words.firstWord,
               this.props.words.secondWord,
               data
             ).map(x => {
               return (
-                <LadderStep key={x}>
-                  {x.map(y => (
-                    <div>
-                      {!Array.isArray(y) ? (
-                        <Blob>{y}</Blob>
-                      ) : (
-                        <Blob
-                          style={{
-                            backgroundColor: "green",
-                            marginBottom: "20px"
-                          }}
-                        >
-                          {y}
-                        </Blob>
-                      )}
-                    </div>
-                  ))}
-                </LadderStep>
+                <div>
+                  <LadderStep key={x}>
+                    {x.map(y => (
+                      <div key={uuidv1()}>
+                        {!Array.isArray(y) ? (
+                          <Blob>{y}</Blob>
+                        ) : (
+                          <Blob
+                            style={{
+                              backgroundColor: "green",
+                              marginBottom: "20px"
+                            }}
+                          >
+                            {y}
+                          </Blob>
+                        )}
+                      </div>
+                    ))}
+                  </LadderStep>
+                </div>
               );
             })}
+            <LadderStep>
+              <InputtedWord>{this.props.words.secondWord}</InputtedWord>
+            </LadderStep>
           </Words>
-        ) : null}
+        ) : (
+          <Title>
+            For example: JINX to BULL, COSY to RINK, or DEAF to SOON.
+          </Title>
+        )}
       </MainResultsDiv>
     );
   }

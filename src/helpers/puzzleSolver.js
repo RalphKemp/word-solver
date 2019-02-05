@@ -11,7 +11,6 @@ export const puzzleSolver = (x, y, d) => {
 
   // new pools created from poolOne. (second ladder place)
   const poolTwo = createComparativePool(poolOne, data, y, 3, 1);
-  console.log(poolTwo);
 
   const poolThree = [];
   // for each pool in poolTwo, we run the function again, but this time we need TWO
@@ -28,10 +27,14 @@ export const puzzleSolver = (x, y, d) => {
     );
   });
 
-  pools.push(poolOne, poolTwo, poolThree, poolFour);
+  pools.push(poolOne, poolTwo, removeEmpty(poolThree), removeEmpty(poolFour));
 
   return pools;
 };
+
+function removeEmpty(arr) {
+  return arr.filter(x => x.length > 0);
+}
 
 function createFirstPool(firstWord, data, y) {
   const secondWord = y.split("");
